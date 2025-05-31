@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+  <title>Receitas da Sandra</title>
+</head>
+
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <h1>Receitas da Sandra</h1>
+        <p>Sabores que inspiram, momentos que ficam</p>
+      </div>
+      <div class="search-container">
+        <form class="search-bar">
+          <input type="text" placeholder="Buscar receita ou ingrediente...">
+          <button type="submit">Buscar</button>
+        </form>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Início</a></li>
+          <li><a href="#">Categorias</a></li>
+          <li><a href="#">Mais Populares</a></li>
+          <li><a href="#">Novidades</a></li>
+          <li><a href="dashboard.html">Graficos</a></li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="featured">
+      <h2 class="featured-title">Receitas</h2>
+      <div class="recipe-container" id="recipe-container">
+        <!-- Receitas serão carregadas aqui -->
+      </div>
+    </section>
+
+    <section class="categories">
+      <h2 class="categories-title">Categorias</h2>
+      <div class="categories-grid">
+        <div class="category-card">
+          <div class="category-icon">🍲</div>
+          <div class="category-name">Pratos Principais</div>
+        </div>
+        <div class="category-card">
+          <div class="category-icon">🍰</div>
+          <div class="category-name">Sobremesas</div>
+        </div>
+        <div class="category-card">
+          <div class="category-icon">🍞</div>
+          <div class="category-name">Pães</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a href="cadastro_receitas.html" class="btn-flutuante" title="Cadastrar Receita">+</a>
+
+  <footer>
+    <div class="footer-container">
+      <p class="footer-text">Venha conhecer mais sobre o sabor culinário da Sandra!</p>
+      <p class="footer-text">Site feito por: Juan Carlos Barbosa Reis</p>
+      <p class="footer-text">Matrícula: 887699</p>
+    </div>
+  </footer>
+
+<script>
+  const container = document.getElementById('recipe-container');
+  const searchForm = document.querySelector('.search-bar');
+  const searchInput = searchForm.querySelector('input');
+
+  async function carregarReceitas(filtro = '') {
+    try {
+      const res = await fetch('http://localhost:3000/receitas');
+      const receitas = await res.json();
+
+      const receitasFiltradas = receitas.filter(receita => {
+        const termo = filtro.toLowerCase();
+        return (
+          receita.titulo.toLowerCase().includes(termo) ||
+          receita.descricao.toLowerCase().includes(termo) ||
+          (receita.ingredientes || []).some(ing => ing.toLowerCase().includes(termo))
+        );
+      });
+
+      exibirReceitas(receitasFiltradas);
+    } catch (error) {
+      container.innerHTML = `<p style="color: red;">Erro ao carregar receitas: ${error.message}</p>`;
+    }
+  }
+
+  function exibirReceitas(receitas) {
+    container.innerHTML = '';
+    if (receitas.length === 0) {
+      container.innerHTML = '<p style="color: gray;">Nenhuma receita encontrada.</p>';
+      return;
+    }
+
+    receitas.forEach(receita => {
+      // Prioriza o primeiro item do array imagens, se existir, senão imagem única
+      let imgSrc = 'default.jpg';
+      if (Array.isArray(receita.imagens) && receita.imagens.length > 0) {
+        imgSrc = receita.imagens[0];
+      } else if (receita.imagem) {
+        imgSrc = receita.imagem;
+      }
+
+      const card = document.createElement('div');
+      card.className = 'recipe-card';
+      card.innerHTML = `
+        <div class="recipe-image">
+          <a href="detalhes.html?id=${receita.id}">
+            <img src="${imgSrc}" alt="${receita.titulo}">
+          </a>
+        </div>
+        <div class="recipe-info">
+          <a href="detalhes.html?id=${receita.id}">
+            <h3 class="recipe-title">${receita.titulo}</h3>
+          </a>
+          <div class="recipe-meta">
+            <span class="recipe-time">${receita.tempo}</span>
+            <span class="recipe-difficulty">${receita.dificuldade}</span>
+          </div>
+          <p class="recipe-description">${receita.descricao}</p>
+          <div class="recipe-tags">
+            ${(receita.tags || []).map(tag => `<span class="recipe-tag">${tag}</span>`).join('')}
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  // Busca ao submeter o formulário
+  searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const termo = searchInput.value.trim();
+    carregarReceitas(termo);
+  });
+
+  // Busca em tempo real enquanto digita
+  searchInput.addEventListener('keyup', () => {
+    const termo = searchInput.value.trim();
+    carregarReceitas(termo);
+  });
+
+  // Carrega todas as receitas ao iniciar a página
+  carregarReceitas();
+</script>
+
+</body>
+</html>

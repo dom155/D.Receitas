@@ -1,0 +1,160 @@
+{
+  "receitas": [
+    {
+      "id": "1",
+      "titulo": "Bolo de Chocolate Especial",
+      "tempo": "45 min",
+      "dificuldade": "Fácil",
+      "descricao": "Um delicioso bolo de chocolate.",
+      "ingredientes": [
+        "Farinha",
+        "Cacau",
+        "Ovos",
+        "Manteiga",
+        "Açúcar",
+        "Chocolate meio amargo"
+      ],
+      "imagem": "boloCH.jpg",
+      "tags": [
+        "Sobremesa",
+        "Chocolate"
+      ],
+      "preparo": [
+        "Pré-aqueça o forno a 180°C.",
+        "Misture todos os ingredientes.",
+        "Despeje em uma forma untada.",
+        "Asse por 40 minutos ou até o palito sair limpo."
+      ]
+    },
+    {
+      "id": "2",
+      "titulo": "Pavê de Morango",
+      "tempo": "50 min",
+      "dificuldade": "Médio",
+      "descricao": "Pavê delicioso com morango.",
+      "ingredientes": [
+        "Morango",
+        "Biscoito Champagne",
+        "Leite",
+        "Creme de Leite"
+      ],
+      "imagem": "pave.jpg",
+      "tags": [
+        "Sobremesa",
+        "Doce"
+      ],
+      "preparo": [
+        "Monte camadas com biscoito, creme e morango.",
+        "Leve à geladeira por 2 horas antes de servir."
+      ]
+    },
+    {
+      "id": "3",
+      "titulo": "Lasanha",
+      "tempo": "60 min",
+      "dificuldade": "Médio",
+      "descricao": "Lasanha recheada com carne e queijo.",
+      "ingredientes": [
+        "Carne",
+        "Queijo",
+        "Molho de Tomate",
+        "Massa de Lasanha"
+      ],
+      "imagem": "https://static.itdg.com.br/images/360-240/ec2a5e38702c60bf1ace0b5f1c8e9415/shutterstock-739787011.jpg",
+      "tags": [
+        "Almoço"
+      ],
+      "preparo": [
+        "Monte as camadas da lasanha.",
+        "Leve ao forno por 40 minutos a 200°C."
+      ]
+    },
+    {
+      "id": "4",
+      "titulo": "Fricassê de Frango",
+      "tempo": "50 min",
+      "dificuldade": "Fácil",
+      "descricao": "Frango desfiado com bastante queijo e batata palha.",
+      "ingredientes": [
+        "Frango",
+        "Queijo",
+        "Creme de Leite",
+        "Batata Palha"
+      ],
+      "imagem": "https://minhasreceitinhas.com.br/wp-content/uploads/2023/02/maxresdefault-56-730x365.jpg",
+      "tags": [
+        "Janta"
+      ],
+      "preparo": [
+        "Refogue o frango com creme de leite.",
+        "Cubra com queijo e leve ao forno.",
+        "Adicione batata palha por cima ao final."
+      ]
+    },
+    {
+      "id": "5",
+      "titulo": "Pão de Alho 4 Queijos",
+      "tempo": "40 min",
+      "dificuldade": "Fácil",
+      "descricao": "Pão artesanal com mussarela, parmesão, cheddar e gorgonzola.",
+      "ingredientes": [
+        "Pão",
+        "Mussarela",
+        "Parmesão",
+        "Cheddar",
+        "Gorgonzola"
+      ],
+      "imagem": "https://lh3.googleusercontent.com/proxy/iVf8yc93_cXZ_mhYfa2C3vAFOhCfJpgXA9ImSjRQ0K5HSD1xuL73qKiIqpNQA99gTHuan_Xfh_NWiG6pVhrRsteICN9x70i8FXVnr1M",
+      "tags": [
+        "Pão de Alho",
+        "Churrasco com a Família"
+      ],
+      "preparo": [
+        "Misture os queijos e recheie o pão.",
+        "Asse até dourar e derreter bem."
+      ]
+    },
+    {
+      "titulo": "Pastel de carne e azeitona",
+      "tempo": "30min",
+      "dificuldade": "Difícil",
+      "descricao": "um bom pastel",
+      "ingredientes": [
+        "massa",
+        "carne moida",
+        "molho de tomate"
+      ],
+      "modoPreparo": "pre aqueça a air frayer em 190 graus",
+      "imagens": [
+        "https://static-images.ifood.com.br/image/upload/t_high/pratos/815fa20a-6c75-4ac8-ad9c-d18857b03cfe/202004192017_WUL4_p.jpg"
+      ],
+      "tags": [
+        "pastel",
+        "carne",
+        "azeitona"
+      ],
+      "id": "6"
+    },
+    {
+      "titulo": "Pudim",
+      "tempo": "1Hora",
+      "dificuldade": "Fácil",
+      "descricao": "Um delicioso Pudim cremoso de leite condessado",
+      "ingredientes": [
+        "ovos",
+        "LeiteCondessado",
+        "leite",
+        "caramelo"
+      ],
+      "modoPreparo": "Bata tudo na batedeira, realize o banho maria e faça o caramelo.",
+      "imagens": [
+        "https://s2-receitas.glbimg.com/jK-kMTPr3Yzex9P93zqt4DSsFXo=/0x0:1366x768/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2023/z/0/RsipkzTEu0Y1PGiavCpA/pudim-de-leite-condensado.jpg"
+      ],
+      "tags": [
+        "Doce",
+        "Sandra"
+      ],
+      "id": "7"
+    }
+  ]
+}
