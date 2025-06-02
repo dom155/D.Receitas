@@ -1,0 +1,199 @@
+{
+  "receitas": [
+    {
+      "id": "1",
+      "titulo": "Bolo de Chocolate Especial",
+      "tempo": "45 min",
+      "dificuldade": "Fácil",
+      "descricao": "Um delicioso bolo de chocolate.",
+      "ingredientes": [
+        "Farinha",
+        "Cacau",
+        "Ovos",
+        "Manteiga",
+        "Açúcar",
+        "Chocolate meio amargo"
+      ],
+      "imagem": "boloCH.jpg",
+      "favorita": true,
+      "tags": [
+        "Sobremesa",
+        "Chocolate"
+      ],
+      "preparo": [
+        "Pré-aqueça o forno a 180°C.",
+        "Misture todos os ingredientes.",
+        "Despeje em uma forma untada.",
+        "Asse por 40 minutos ou até o palito sair limpo."
+      ]
+    },
+    {
+      "id": "2",
+      "titulo": "Pavê de Morango",
+      "tempo": "50 min",
+      "dificuldade": "Médio",
+      "descricao": "Pavê delicioso com morango.",
+      "ingredientes": [
+        "Morango",
+        "Biscoito Champagne",
+        "Leite",
+        "Creme de Leite"
+      ],
+      "imagem": "pave.jpg",
+      "favorita": false,
+      "tags": [
+        "Sobremesa",
+        "Doce"
+      ],
+      "preparo": [
+        "Monte camadas com biscoito, creme e morango.",
+        "Leve à geladeira por 2 horas antes de servir."
+      ]
+    },
+    {
+      "id": "3",
+      "titulo": "Lasanha",
+      "tempo": "60 min",
+      "dificuldade": "Médio",
+      "descricao": "Lasanha recheada com carne e queijo.",
+      "ingredientes": [
+        "Carne",
+        "Queijo",
+        "Molho de Tomate",
+        "Massa de Lasanha"
+      ],
+      "imagem": "https://static.itdg.com.br/images/360-240/ec2a5e38702c60bf1ace0b5f1c8e9415/shutterstock-739787011.jpg",
+      "favorita": true,
+      "tags": [
+        "Almoço"
+      ],
+      "preparo": [
+        "Monte as camadas da lasanha.",
+        "Leve ao forno por 40 minutos a 200°C."
+      ]
+    },
+    {
+      "id": "4",
+      "titulo": "Fricassê de Frango",
+      "tempo": "50 min",
+      "dificuldade": "Fácil",
+      "descricao": "Frango desfiado com bastante queijo e batata palha.",
+      "ingredientes": [
+        "Frango",
+        "Queijo",
+        "Creme de Leite",
+        "Batata Palha"
+      ],
+      "imagem": "https://minhasreceitinhas.com.br/wp-content/uploads/2023/02/maxresdefault-56-730x365.jpg",
+      "favorita": false,
+      "tags": [
+        "Janta"
+      ],
+      "preparo": [
+        "Refogue o frango com creme de leite.",
+        "Cubra com queijo e leve ao forno.",
+        "Adicione batata palha por cima ao final."
+      ]
+    },
+    {
+      "id": "5",
+      "titulo": "Pão de Alho 4 Queijos",
+      "tempo": "40 min",
+      "dificuldade": "Fácil",
+      "descricao": "Pão artesanal com mussarela, parmesão, cheddar e gorgonzola.",
+      "ingredientes": [
+        "Pão",
+        "Mussarela",
+        "Parmesão",
+        "Cheddar",
+        "Gorgonzola"
+      ],
+      "imagem": "https://th.bing.com/th/id/OIP.xZr7JHchVKgMrl3OtyQY-wHaER?rs=1&pid=ImgDetMain",
+      "favorita": false,
+      "tags": [
+        "Pão de Alho",
+        "Churrasco com a Família"
+      ],
+      "preparo": [
+        "Misture os queijos e recheie o pão.",
+        "Asse até dourar e derreter bem."
+      ]
+    },
+    {
+      "titulo": "Pastel de carne e azeitona",
+      "tempo": "30min",
+      "dificuldade": "Difícil",
+      "descricao": "um bom pastel",
+      "ingredientes": [
+        "massa",
+        "carne moida",
+        "molho de tomate"
+      ],
+      "modoPreparo": "pre aqueça a air frayer em 190 graus",
+      "imagens": [
+        "https://static-images.ifood.com.br/image/upload/t_high/pratos/815fa20a-6c75-4ac8-ad9c-d18857b03cfe/202004192017_WUL4_p.jpg"
+      ],
+      "favorita": false,
+      "tags": [
+        "pastel",
+        "carne",
+        "azeitona"
+      ],
+      "id": "6"
+    },
+    {
+      "titulo": "Pudim",
+      "tempo": "1Hora",
+      "dificuldade": "Fácil",
+      "descricao": "Um delicioso Pudim cremoso de leite condessado",
+      "ingredientes": [
+        "1 xícara (chá) de açúcar",
+        "meia xícara (chá) de água quente",
+        "1Leite MOÇA®",
+        "(lata ou caixinha) 395 g",
+        "2 medidas (da lata) de Leite Líquido NINHO® Forti+ Integral",
+        "3 ovos"
+      ],
+      "modoPreparo": "Em uma panela de fundo largo, derreta o açúcar até ficar dourado.\nJunte a água quente e mexa com uma colher. Deixe ferver até dissolver os torrões de açúcar e a calda engrossar.\nForre com a calda uma forma com furo central (19 cm de diâmetro) e reserve.\nEm um liquidificador, acrescente o Leite Condensado Integral MOÇA, o leite NINHO Forti+ Integral e os ovos. Bata até obter uma consistência homogênea e despeje na forma reservada.\nCubra com papel-alumínio e leve ao forno médio (180°C), em banho-maria, por cerca de 1 hora e 30 minutos.\nDepois de frio, leve o pudim de leite condensado MOÇA para gelar por cerca de 6 horas. Desenforme e sirva a seguir.",
+      "imagens": [
+        "https://s2-receitas.glbimg.com/jK-kMTPr3Yzex9P93zqt4DSsFXo=/0x0:1366x768/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2023/z/0/RsipkzTEu0Y1PGiavCpA/pudim-de-leite-condensado.jpg"
+      ],
+      "favorita": false,
+      "tags": [
+        "Doce",
+        "Sandra"
+      ],
+      "id": "7"
+    },
+    {
+      "id": "8",
+      "titulo": "Gelatina Colorida",
+      "tempo": "45min",
+      "dificuldade": "Médio",
+      "descricao": "Gelatina colorida de liquidificador uma sobremesa simples e deliciosa para qualquer dia da semana.",
+      "ingredientes": [
+        "2 envelopes de gelatina sabor uva",
+        "2 envelopes de gelatina sabor morango",
+        "2 envelopes de gelatina sabor limão",
+        "2 envelopes de gelatina sabor abacaxi",
+        "250 ml de água fria (para cada sabor)",
+        "250 ml de água quente (para cada sabor)",
+        "1 xícara(chá) de leite",
+        "2 caixinhas de creme de leite",
+        "1 caixinha de leite condensado",
+        "1 ½ envelope de gelatina incolor sem sabor",
+        "7 colheres(sopa) de água",
+        "5 colheres(sopa) de açúcar"
+      ],
+      "modoPreparo": "Modo de preparo \nDas gelatinas\nColoque numa vasilha a água quente (250 ml) e a gelatina de uva, misture bem para dissolver completamente. Adicione a água fria (250 ml) e mexa para incorporar.\nNuma forma ou pote retangular, despeje a gelatina de uva dissolvida, e leve para gelar por cerca de 2-3 horas até ficar bem firme. \nRepita esse processo com os demais sabores das gelatinas e leve para gelar.\nRetire da geladeira, e corte todas as gelatinas em cubinhos e disponha numa tigela. Reserve.\nDo creme \nHidrate a gelatina incolor, numa tigelinha, com a água e dissolva conforme instruções da embalagem.\nNo liquidificador coloque o creme de leite, o leite condensado, o leite, o açúcar e a gelatina dissolvida. Bata bem por 1 minuto para homogeneizar. \nColoque essa mistura na tigela com os cubinhos de gelatina e misture bem para agregar. \nDespeje numa forma (25 cm de diâmetro) de furo central levemente untada com óleo, e leve para gelar por cerca de 2-3 horas. \nSe for necessário utilize 2 ou 3 formas do tamanho que preferir. \nRetire da geladeira e se delicie com essa gostosura de gelatina colorida!",
+      "imagens": [
+        "https://receitatodahora.com.br/wp-content/uploads/2023/07/gelatina-colorida-04-0711.jpg"
+      ],
+      "tags": [
+        "Doce",
+        "Gelatina"
+      ],
+      "favorita": true
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receitas Favoritas</title>
+  <link rel="stylesheet" href="favoritos.css" />
+</head>
+
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Minhas Receitas Favoritas</h1>
+      <a href="index.html" class="voltar">← Voltar</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="favorites-section">
+      <div class="favorites-container" id="favorites-container">
+        <!-- Receitas favoritas serão carregadas aqui -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="footer-text">Feito por Juan Carlos Barbosa Reis</p>
+  </footer>
+
+  <script>
+    const container = document.getElementById('favorites-container');
+
+    async function carregarFavoritos() {
+      try {
+        const res = await fetch('http://localhost:3000/receitas?favorita=true');
+        const receitas = await res.json();
+
+        if (receitas.length === 0) {
+          container.innerHTML = '<p class="vazio">Você ainda não tem receitas favoritas.</p>';
+          return;
+        }
+
+        receitas.forEach(receita => {
+          let imgSrc = 'default.jpg';
+          if (Array.isArray(receita.imagens) && receita.imagens.length > 0) {
+            imgSrc = receita.imagens[0];
+          } else if (receita.imagem) {
+            imgSrc = receita.imagem;
+          }
+
+          const card = document.createElement('div');
+          card.className = 'favorite-card';
+          card.innerHTML = `
+  <div class="image">
+    <a href="detalhes.html?id=${receita.id}">
+      <img src="${imgSrc}" alt="${receita.titulo}">
+    </a>
+  </div>
+  <div class="info">
+    <a href="detalhes.html?id=${receita.id}">
+      <h3>${receita.titulo}</h3>
+    </a>
+    <p>${receita.descricao}</p>
+    <div class="meta">
+      <span>${receita.tempo}</span> • 
+      <span>${receita.dificuldade}</span>
+    </div>
+    <button class="unfavorite-btn" data-id="${receita.id}">
+      ❌ Remover dos Favoritos
+    </button>
+  </div>
+`;
+          container.appendChild(card);
+          const unfavBtn = card.querySelector('.unfavorite-btn');
+unfavBtn.addEventListener('click', async () => {
+  try {
+    await fetch(`http://localhost:3000/receitas/${receita.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ favorita: false })
+    });
+
+    // Recarrega a lista após remover dos favoritos
+    carregarFavoritos();
+  } catch (error) {
+    console.error('Erro ao desfavoritar:', error);
+  }
+});
+        });
+
+      } catch (error) {
+        container.innerHTML = `<p class="erro">Erro ao carregar favoritos: ${error.message}</p>`;
+      }
+    }
+
+    carregarFavoritos();
+  </script>
+</body>
+
+</html>

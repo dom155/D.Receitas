@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Receitas</title>
+  <link rel="stylesheet" href="cadastro_receitas.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Cadastrar Receita</h1>
+    <form id="formReceita">
+      <label>Título:
+        <input type="text" name="titulo" required>
+      </label>
+      <label>Tempo:
+        <input type="text" name="tempo" required>
+      </label>
+      <label>Dificuldade:
+        <select name="dificuldade" required>
+          <option value="">Selecione</option>
+          <option value="Fácil">Fácil</option>
+          <option value="Médio">Médio</option>
+          <option value="Difícil">Difícil</option>
+        </select>
+      </label>
+      <label>Descrição:
+        <textarea name="descricao" required></textarea>
+      </label>
+      <label>Ingredientes (separados por vírgula):
+        <textarea name="ingredientes" required></textarea>
+      </label>
+      <label>Modo de Preparo:
+        <textarea name="modoPreparo" required></textarea>
+      </label>
+      <label>Imagens (URLs separados por vírgula):
+        <input type="text" name="imagens" required>
+      </label>
+      <label>Tags (separados por vírgula):
+        <input type="text" name="tags" required>
+      </label>
+      <button type="submit">Cadastrar</button>
+      <a class="btn-voltar" href="index.html">Voltar para o Início</a>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('formReceita');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const receita = {
+        titulo: form.titulo.value.trim(),
+        tempo: form.tempo.value.trim(),
+        dificuldade: form.dificuldade.value,
+        descricao: form.descricao.value.trim(),
+        ingredientes: form.ingredientes.value.split(',').map(i => i.trim()).filter(i => i),
+        modoPreparo: form.modoPreparo.value.trim(),
+        imagens: form.imagens.value.split(',').map(i => i.trim()).filter(i => i),
+        tags: form.tags.value.split(',').map(i => i.trim()).filter(i => i),
+      };
+
+      fetch('http://localhost:3000/receitas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(receita)
+      })
+        .then(res => {
+          if (res.ok) {
+            alert('Receita cadastrada com sucesso!');
+            form.reset();
+            window.location.href = 'index.html';
+          } else {
+            alert('Erro ao cadastrar.');
+          }
+        })
+        .catch(err => {
+          alert('Erro na conexão.');
+          console.error(err);
+        });
+    });
+  </script>
+</body>
+
+</html>

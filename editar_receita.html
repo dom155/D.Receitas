@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Editar Receita</title>
+  <link rel="stylesheet" href="editar_receita.css" />
+</head>
+<body>
+  <main>
+    <h1>Editar Receita</h1>
+    <form id="formEditar" novalidate>
+      <fieldset>
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" name="titulo" required autocomplete="off" />
+
+        <label for="tempo">Tempo</label>
+        <input type="text" id="tempo" name="tempo" required autocomplete="off" />
+
+        <label for="dificuldade">Dificuldade</label>
+        <select id="dificuldade" name="dificuldade" required>
+          <option value="" disabled selected>Selecione</option>
+          <option value="Fácil">Fácil</option>
+          <option value="Médio">Médio</option>
+          <option value="Difícil">Difícil</option>
+        </select>
+
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao" required rows="4"></textarea>
+
+        <label for="ingredientes">Ingredientes (separados por vírgula)</label>
+        <textarea id="ingredientes" name="ingredientes" required rows="4"></textarea>
+
+        <label for="modoPreparo">Modo de Preparo</label>
+        <textarea id="modoPreparo" name="modoPreparo" required rows="5"></textarea>
+
+        <label for="imagens">Imagens (URLs separados por vírgula)</label>
+        <input type="text" id="imagens" name="imagens" required autocomplete="off" />
+
+        <label for="tags">Tags (separados por vírgula)</label>
+        <input type="text" id="tags" name="tags" required autocomplete="off" />
+      </fieldset>
+
+      <button type="submit">Salvar Alterações</button>
+    </form>
+
+    <a href="index.html" class="btn-voltar" aria-label="Voltar para página inicial">← Voltar</a>
+  </main>
+
+  <script>
+    const formEditar = document.getElementById('formEditar');
+
+    function getIdFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('id');
+    }
+
+    async function carregarDados() {
+      const id = getIdFromUrl();
+      if (!id) {
+        alert('Receita não encontrada.');
+        window.location.href = 'index.html';
+        return;
+      }
+
+      try {
+        const res = await fetch(`http://localhost:3000/receitas/${id}`);
+        if (!res.ok) throw new Error('Receita não encontrada');
+        const receita = await res.json();
+
+        formEditar.titulo.value = receita.titulo;
+        formEditar.tempo.value = receita.tempo;
+        formEditar.dificuldade.value = receita.dificuldade;
+        formEditar.descricao.value = receita.descricao;
+        formEditar.ingredientes.value = receita.ingredientes.join(', ');
+        formEditar.modoPreparo.value = receita.modoPreparo;
+        formEditar.imagens.value = receita.imagens.join(', ');
+        formEditar.tags.value = receita.tags.join(', ');
+      } catch (err) {
+        alert(err.message);
+        window.location.href = 'index.html';
+      }
+    }
+
+    formEditar.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const id = getIdFromUrl();
+
+      const receitaAtualizada = {
+        titulo: formEditar.titulo.value.trim(),
+        tempo: formEditar.tempo.value.trim(),
+        dificuldade: formEditar.dificuldade.value,
+        descricao: formEditar.descricao.value.trim(),
+        ingredientes: formEditar.ingredientes.value
+          .split(',')
+          .map(i => i.trim())
+          .filter(i => i),
+        modoPreparo: formEditar.modoPreparo.value.trim(),
+        imagens: formEditar.imagens.value
+          .split(',')
+          .map(i => i.trim())
+          .filter(i => i),
+        tags: formEditar.tags.value.split(',').map(i => i.trim()).filter(i => i),
+      };
+
+      if (!receitaAtualizada.titulo || !receitaAtualizada.tempo || !receitaAtualizada.dificuldade) {
+        alert('Preencha todos os campos obrigatórios.');
+        return;
+      }
+
+      try {
+        const res = await fetch(`http://localhost:3000/receitas/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(receitaAtualizada)
+        });
+
+        if (res.ok) {
+          alert('Receita atualizada com sucesso!');
+          window.location.href = `detalhes.html?id=${id}`;
+        } else {
+          alert('Erro ao atualizar a receita.');
+        }
+      } catch (err) {
+        alert('Erro na conexão.');
+        console.error(err);
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', carregarDados);
+  </script>
+</body>
+</html>
